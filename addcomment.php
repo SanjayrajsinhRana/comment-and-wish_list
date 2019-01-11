@@ -13,6 +13,12 @@ $result1=mysqli_query($con,$query);
 $uid=$_SESSION['u_id'];
 $cmt=$_POST['comment'];
 $pid=$_GET['id'];
+if($cmt == null)
+{
+	header("Location: ../product/viewdetails.php?id=$pid");	
+}
+else
+{
 $query1="INSERT INTO comment(cid,cmt,pid) values ('$uid','$cmt','$pid')";
 if(mysqli_query($con,$query1))
 {
@@ -21,5 +27,6 @@ if(mysqli_query($con,$query1))
 else
 {
 	echo mysqli_error($con);
+}
 }
 ?>

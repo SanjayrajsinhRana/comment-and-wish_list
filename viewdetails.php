@@ -47,7 +47,7 @@ require ('connection.php');
 $con1=new connection();
 $con=$con1->connect();
 $prod_id=$_GET['id'];
-$query="SELECT pimg,pid,pname FROM product where pid='$prod_id'";
+$query="SELECT pimg,pid,pname,price FROM product where pid='$prod_id'";
 $select=mysqli_query($con,$query);
 while($row=mysqli_fetch_assoc($select))
 {
@@ -57,6 +57,8 @@ while($row=mysqli_fetch_assoc($select))
 	</div>
 	<div class="top_right">
 		DETAILS:<br>
+		PRICE IN ₹=<?php echo $row["price"]?>
+		<br>
 		PICTURE_ID=<?php echo $row["pid"]?>
 		<br>
 		PRODUCT_NAME=<?php echo $row["pname"]?>
