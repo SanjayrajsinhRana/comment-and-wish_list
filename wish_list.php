@@ -68,6 +68,8 @@ while ($row=mysqli_fetch_assoc($result))
 		<br>
 		IMAGE_NAME=<?php echo $row["pimg"]?>
 		<br>
+		<a href="del_wish.php?id=<?php echo $row['pid']?>">
+		<button>DELETE</button></a>
 	</div>
 		</div>
 </div>
