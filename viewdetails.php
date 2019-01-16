@@ -1,3 +1,6 @@
+<?php
+include('header.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,6 +69,8 @@ while($row=mysqli_fetch_assoc($select))
 		IMAGE_NAME=<?php echo $row["pimg"]?>
 		<br>
 		<a href="comment.php?id=<?php echo $_GET['id'];?>"><button>ADD COMMENT</button></a>
+		<a href="addwish.php?id=<?php echo $_GET['id'];?>"><button>ADD TO WISH-LIST</button></a>
+
 	</div>
 </div>
 <?php
