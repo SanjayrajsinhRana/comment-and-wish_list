@@ -45,6 +45,12 @@ $cust_id =$_SESSION['u_id'];
 //$wquery="SELECT pid,pname,pimg FROM product WHERE cid='$cust_id'";
 $wquery="SELECT * FROM product WHERE pid IN(SELECT pid FROM wish_list WHERE cid='$cust_id')";
 $result=mysqli_query($con,$wquery);
+if (mysqli_num_rows($result) == 0) 
+{
+	echo "No any product in wish_list";
+}
+else
+{
 while ($row=mysqli_fetch_assoc($result)) 
 {?>
 	<div class="wish_prod">
@@ -66,6 +72,7 @@ while ($row=mysqli_fetch_assoc($result))
 		</div>
 </div>
 <?php
+}
 }
 ?>
 </div>
