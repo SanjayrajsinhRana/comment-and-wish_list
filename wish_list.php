@@ -3,6 +3,8 @@ include('header.php');
 require('connection.php');
 $con1=new connection();
 $con=$con1->connect();
+if(isset($_SESSION['u_id']))
+{
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,6 +36,11 @@ $con=$con1->connect();
 		border-radius: 10px;
 
 	}
+		.btn_wish
+		{
+			border-radius: 15px;
+		background-color: #f98c1f;
+		}
 	</style>
 </head>
 <body>
@@ -68,15 +75,20 @@ while ($row=mysqli_fetch_assoc($result))
 		IMAGE_NAME=<?php echo $row["pimg"]?>
 		<br>
 		<a href="del_wish.php?id=<?php echo $row['pid']?>">
-		<button>DELETE</button></a>
+		<button class="btn_wish">DELETE</button></a>
 	</div>
 		</div>
 </div>
 <?php
+	}
+	}
 }
+else
+{
+	header("Location: ../form/login.php");
 }
 ?>
 </div>
-<a href="viewproduct.php"><button>Product-Page</button></a>
+<a href="viewproduct.php"><button class="btn_wish">Product-Page</button></a>
 </body>
 </html>

@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (isset($_SESSION['u_id'])) {
+	# code...
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,6 +51,15 @@ session_start();
 		border-radius: 15px;
 		margin-right: 5px;
 	}
+	.view_prod
+	{	
+		width: 10%;
+		height: 100%;
+		float: right;
+		background-color: #e0e0d2;
+		border-radius: 15px;
+		margin-right: 5px;
+	}
 	.user_name
 	{
 		margin-top: 8px;
@@ -61,6 +73,11 @@ session_start();
 <p class="user_name">
 <?php
 echo $_SESSION['uname'];
+}
+else
+{
+	header("Location: ../form/login.php");
+}
 ?>
 </p>
 </div>
@@ -68,7 +85,8 @@ echo $_SESSION['uname'];
 	<a href="../form/logout.php"><p class="user_name">LogOut</p></a>
 </div>
 <a href="cart.php"><div class="cart"><p class="user_name">CART</p></div></a>
-<a href="wish_list.php"><div class="wish-list"><p class="user_name">WishList</p></div>
-</div></a>
+<a href="wish_list.php"><div class="wish-list"><p class="user_name">WishList</p></div></a>
+<a href="viewproduct.php"><div class="view_prod"><p class="user_name">ViewProduct</p></div></a>
+</div>
 </body>
 </html>

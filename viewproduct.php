@@ -1,5 +1,5 @@
 <?php
-session_start();
+include('header.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,6 +51,8 @@ session_start();
 require ('connection.php');
 $con1=new connection();
 $con=$con1->connect();
+if(isset($_SESSION['u_id']))
+{
 $query="SELECT * FROM product";
 $select=mysqli_query($con,$query);
 while($row=mysqli_fetch_assoc($select))
@@ -68,6 +70,11 @@ while($row=mysqli_fetch_assoc($select))
 </div>
 </a>
 <?php
+}
+}
+else
+{
+	header("Location ../form/login.php");
 }
 ?>
 <a href="../form/homepage.php"><button>HOME_PAGE</button></a>

@@ -3,6 +3,8 @@ include ('header.php');
 require('connection.php');
 $con1=new connection();
 $con=$con1->connect();
+if(isset($_SESSION['u_id']))
+{
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,7 +34,7 @@ $con=$con1->connect();
 		margin-top: 1%;
 		width: 65%;
 		float: left;
-		height: 800px;
+		height: auto;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		border-radius: 15px;
 
@@ -68,6 +70,7 @@ $con=$con1->connect();
 		margin-right: 1%;
 		float: right;
 		margin-top: 3%;
+		margin-bottom: 3%;
 		border-radius: 15px;
 		background-color: #f98c1f;
 	}
@@ -161,6 +164,12 @@ $con=$con1->connect();
 				echo mysqli_error($con);
 			}
 		}
+}
+else
+
+{
+	header("Location: ../form/login.php");
+}
 			?>
 		</div>
 </div>
