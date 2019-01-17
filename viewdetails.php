@@ -4,13 +4,15 @@ include('header.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>PRODUCT-DETAILS</title>
 	<style type="text/css">
 		.top
 		{
 			width:100%;
-			background-color: black;
 			height: 310px;
+			margin-top: 5px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 15px;
 		}
 		.top_left
 		{
@@ -32,13 +34,20 @@ include('header.php');
 		}
 		.bottom
 		{	
-			margin-top: 5px;
-			background-color: gray;
+			margin-top: 15px;
+			
 			height: 310px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 15px;
 		}
 		.cmt_show
 		{
 			margin-top: 10px;
+		}
+		.view_btn
+		{
+			border-radius: 15px;
+			background-color: #f98c1f;
 		}
 	</style>
 </head>
@@ -68,9 +77,9 @@ while($row=mysqli_fetch_assoc($select))
 		<br>
 		IMAGE_NAME=<?php echo $row["pimg"]?>
 		<br>
-		<a href="comment.php?id=<?php echo $_GET['id'];?>"><button>ADD COMMENT</button></a>
-		<a href="addwish.php?id=<?php echo $_GET['id'];?>"><button>ADD TO WISH-LIST</button></a>
-
+		<a href="comment.php?id=<?php echo $_GET['id'];?>"><button class="view_btn">ADD COMMENT</button></a>
+		<a href="addwish.php?id=<?php echo $_GET['id'];?>"><button class="view_btn">ADD TO WISH-LIST</button></a>
+		<a href="addtocart.php?id=<?php echo $_GET['id'];?>"><button class="view_btn">ADD TO CART</button></a>
 	</div>
 </div>
 <?php
@@ -101,7 +110,7 @@ else
 	}
 }
 ?>
-<a href="viewproduct.php"><button>BACK</button></a>
+<a href="viewproduct.php"><button class="view_btn">BACK</button></a>
 </div>
 </body>
 </html>

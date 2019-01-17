@@ -5,7 +5,7 @@ session_start();
 <html>
 <head>
 	<title>
-		
+		PRODUCT
 	</title>
 <style type="text/css">
 		body{

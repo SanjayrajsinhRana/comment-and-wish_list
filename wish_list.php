@@ -14,7 +14,6 @@ $con=$con1->connect();
 			margin-top: 5px;
 			width: 100%;
 			height: 200px;
-			background-color: gray;
 			float: left;
 		}
 		.left_block

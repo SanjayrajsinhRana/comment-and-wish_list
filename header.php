@@ -9,7 +9,6 @@ session_start();
 	.header
 	{
 		height: 35px;
-		background-color: #e6fff7;
 		width: 100%;
 		margin-top: 0%;
 	}
@@ -18,15 +17,24 @@ session_start();
 		width: 10%;
 		height: 100%;
 		float: right;
-		background-color: #1aff1a;
+		background-color: #e0e0d2;
 		border-radius: 15px;
+	}
+	.cart
+	{	
+		width: 10%;
+		height: 100%;
+		float: right;
+		background-color: #e0e0d2;
+		border-radius: 15px;
+		margin-right: 5px;
 	}
 	.wish-list
 	{	
 		width: 10%;
 		height: 100%;
 		float: right;
-		background-color: #1aff1a;
+		background-color: #e0e0d2;
 		border-radius: 15px;
 		margin-right: 5px;
 	}
@@ -36,7 +44,7 @@ session_start();
 		width: 10%;
 		height: 100%;
 		float: right;
-		background-color: #1aff1a;
+		background-color: #e0e0d2;
 		border-radius: 15px;
 		margin-right: 5px;
 	}
@@ -59,7 +67,7 @@ echo $_SESSION['uname'];
 <div class="log-out">
 	<a href="../form/logout.php"><p class="user_name">LogOut</p></a>
 </div>
-
+<a href="cart.php"><div class="cart"><p class="user_name">CART</p></div></a>
 <a href="wish_list.php"><div class="wish-list"><p class="user_name">WishList</p></div>
 </div></a>
 </body>
