@@ -15,7 +15,6 @@ $con=$con1->connect();
 			margin-top: 5px;
 			width: 30%;
 			height: 100px;
-			background-color: gray;
 			float: left;
 		}
 		.left_block
@@ -34,7 +33,6 @@ $con=$con1->connect();
 		width: 65%;
 		float: left;
 		height: 800px;
-		background-color: gray;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		border-radius: 15px;
 
@@ -57,7 +55,7 @@ $con=$con1->connect();
 	}
 	.button
 	{
-		margin-top: 2%;
+		margin-top: 5%;
 		height: 15%;
 		background-color: white;
 		border-top: 1px solid black;
@@ -79,17 +77,23 @@ $con=$con1->connect();
 		width: 100%;
 		border-top: 1px solid black;
 		border-bottom: 1px solid black;
+		margin-top: 1%;
 
 	}
 	.details
 	{
-		margin-top: 20%;
+		margin-top: 10%;
 		margin-left: 40%;
 	}
 	.btn_remove
 	{
 				background-color: #f98c1f;
 				border-radius: 15px;
+	}
+	.price_details
+	{
+		color: grey;
+		margin-top: 5px;
 	}
 </style>
 </head>
@@ -142,9 +146,8 @@ $con=$con1->connect();
 </div>
 <div class="bill">
 	<div class="details">
-	<p>Price Details</p>
-	<br>	
-	price:<?php
+	<p class="price_details">PRICE DETAILS</p>	
+	Amount Payable:<?php
 			$price_query="SELECT SUM(price) FROM product WHERE pid IN(SELECT pid FROM cart WHERE cid='$cust_id')";
 			if ($result2=mysqli_query($con,$price_query)) 
 			{
