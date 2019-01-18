@@ -77,6 +77,6 @@ else
 	header("Location ../form/login.php");
 }
 ?>
-<a href="../form/homepage.php"><button>HOME_PAGE</button></a>
+<!-- <a href="../form/homepage.php"><button>HOME_PAGE</button></a> -->
 </body>
 </html>

@@ -1,5 +1,7 @@
 <?php
 include('header.php');
+if(isset($_SESSION['u_id']))
+{
 ?>
 <!DOCTYPE html>
 <html>
@@ -108,6 +110,11 @@ else
 		</div>
 	<?php
 	}
+}
+}
+else
+{
+	header("Location: ../form/login.php");
 }
 ?>
 <a href="viewproduct.php"><button class="view_btn">BACK</button></a>

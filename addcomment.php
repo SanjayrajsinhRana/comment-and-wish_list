@@ -3,6 +3,8 @@ session_start();
 require ('connection.php');
 $con1=new connection();
 $con=$con1->connect();
+if (isset($_POST['comment'])) {
+
 $query="CREATE TABLE IF NOT EXISTS comment(
 id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 cid int,
@@ -28,5 +30,10 @@ else
 {
 	echo mysqli_error($con);
 }
+}
+}
+else
+{
+	header("Location: ../form/login.php");
 }
 ?>
