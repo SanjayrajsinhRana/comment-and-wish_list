@@ -61,8 +61,10 @@ while($row=mysqli_fetch_assoc($select))
 <a class="link" href="viewdetails.php?id=<?php echo $row['pid']?>">
 <div class="main">
 		
-			
-			<img class='img' src='../product/picture/<?php echo $row["pimg"]?>' alt='image not found'/><br/>
+<?php $a=$row['pimg'];
+$b=explode(',',$a);
+?>
+			<img class='img' src='../product/picture/<?php echo $b[0]?>' alt='image not found'/><br/>
 		<p class="pname">	<?php
 			echo $row['pname'];
 			?></p>

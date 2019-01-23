@@ -84,7 +84,7 @@ else
 <div class="log-out">
 	<a href="../form/logout.php"><p class="user_name">LogOut</p></a>
 </div>
-<a href="cart.php"><div class="cart"><p class="user_name">CART</p></div></a>
+<a href="cart.php"><div class="cart"><p class="user_name">🛒Cart</p></div></a>
 <a href="wish_list.php"><div class="wish-list"><p class="user_name">WishList</p></div></a>
 <a href="viewproduct.php"><div class="view_prod"><p class="user_name">ViewProduct</p></div></a>
 </div>

@@ -56,19 +56,72 @@ if(isset($_SESSION['u_id']))
 <body>
 <div class="top">
 	<div class="top_left">
-		<?php
-require ('connection.php');
-$con1=new connection();
-$con=$con1->connect();
-$prod_id=$_GET['id'];
-$query="SELECT pimg,pid,pname,price FROM product where pid='$prod_id'";
-$select=mysqli_query($con,$query);
-while($row=mysqli_fetch_assoc($select))
-{
-?>
-<img class='img' src='../product/picture/<?php echo $row["pimg"]?>' alt='image not found'/>
+						<?php
+				require ('connection.php');
+				$con1=new connection();
+				$con=$con1->connect();
+				$prod_id=$_GET['id'];
 
-	</div>
+
+
+
+
+
+					$query="SELECT pimg FROM product where pid='$prod_id'";
+					$select=mysqli_query($con,$query);
+					while($row=mysqli_fetch_assoc($select))
+					{
+					?>
+
+
+					<div class="w3-content">  
+					<?php $a=$row['pimg'];
+					$b=explode(',',$a);
+					?>
+					<?php
+					for($i=0;$i<sizeof($b);$i++)
+					{
+					  ?>
+					      <img class='mySlides' src='../product/picture/<?php echo $b[$i]?>' alt='image not found'/><br/>
+					      <?php }?>
+					      
+					</div>
+					<div class="btn">
+					       <button class="left_btn" onclick="plusDivs(-1)">&#10094;</button>
+					        <button class="right_btn" onclick="plusDivs(1)">&#10095;</button>
+					 </div>
+
+
+					<script>
+					var slideIndex = 1;
+					showDivs(slideIndex);
+
+					function plusDivs(n) {
+					  showDivs(slideIndex += n);
+					}
+
+					function showDivs(n) {
+					  var i;
+					  var x = document.getElementsByClassName("mySlides");
+					  if (n > x.length) {slideIndex = 1}
+					  if (n < 1) {slideIndex = x.length}
+					  for (i = 0; i < x.length; i++) {
+					    x[i].style.display = "none";  
+					  }
+					  x[slideIndex-1].style.display = "block";  
+					}
+					</script>
+					<?php
+					}
+					?>
+
+</div>
+				<?php
+				$query="SELECT pimg,pid,pname,price FROM product where pid='$prod_id'";
+				$select=mysqli_query($con,$query);
+				while($row=mysqli_fetch_assoc($select))
+				{
+				?>
 	<div class="top_right">
 		DETAILS:<br>
 		PRICE IN ₹=<?php echo $row["price"]?>
@@ -77,11 +130,11 @@ while($row=mysqli_fetch_assoc($select))
 		<br>
 		PRODUCT_NAME=<?php echo $row["pname"]?>
 		<br>
-		IMAGE_NAME=<?php echo $row["pimg"]?>
+	<!-- 	IMAGE_NAME=<?php //echo $row["pimg"]?>
 		<br>
-		<a href="comment.php?id=<?php echo $_GET['id'];?>"><button class="view_btn">ADD COMMENT</button></a>
+	 -->	<a href="comment.php?id=<?php echo $_GET['id'];?>"><button class="view_btn">ADD COMMENT</button></a>
 		<a href="addwish.php?id=<?php echo $_GET['id'];?>"><button class="view_btn">ADD TO WISH-LIST</button></a>
-		<a href="addtocart.php?id=<?php echo $_GET['id'];?>"><button class="view_btn">ADD TO CART</button></a>
+		<a href="addtocart.php?id=<?php echo $_GET['id'];?>"><button class="view_btn" name="addtocart">ADD TO CART</button></a>
 	</div>
 </div>
 <?php
@@ -111,6 +164,7 @@ else
 	<?php
 	}
 }
+
 }
 else
 {
