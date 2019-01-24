@@ -51,6 +51,49 @@ if(isset($_SESSION['u_id']))
 			border-radius: 15px;
 			background-color: #f98c1f;
 		}
+
+		.mySlides {
+		  	display:none;
+		  	height:200px;
+  			width: 150px;
+		}
+		.left_btn 
+		{
+		float: left;
+		border-style: none;
+		background-color: black;
+		height: 30px;
+		width:50px;
+		color: white;
+		}
+		.right_btn
+		{
+
+		border-style: none;
+		background-color: black;
+		float: right;
+		height: 30px;
+		width:50px;
+		color: white;
+		}
+		.btn{
+
+		      position:relative;
+		      width:25%;
+		      float: left;
+		      margin-top: 140px;
+		      
+		}
+		.w3-content
+		{
+		  height: 500px;
+		  width: 200px;
+		  display: inline-block;
+		  position: absolute;
+		  padding-left:10px; 
+		  overflow: hidden;
+		  
+		}
 	</style>
 </head>
 <body>
@@ -61,12 +104,6 @@ if(isset($_SESSION['u_id']))
 				$con1=new connection();
 				$con=$con1->connect();
 				$prod_id=$_GET['id'];
-
-
-
-
-
-
 					$query="SELECT pimg FROM product where pid='$prod_id'";
 					$select=mysqli_query($con,$query);
 					while($row=mysqli_fetch_assoc($select))
@@ -143,7 +180,7 @@ if(isset($_SESSION['u_id']))
 <div class="bottom">
 COMMENTS:
 <?php
-$query2="SELECT cmt,cid FROM comment where pid='$prod_id'";
+$query2="SELECT cmt,cid,uname FROM comment where pid='$prod_id'";
 $select2=mysqli_query($con,$query2);
 $rowcount=mysqli_num_rows($select2);
 if($rowcount == 0)
@@ -156,7 +193,7 @@ else
 	{?>
 		<div class="cmt_show">
 	<?php	
-		echo "comment by user:".$row1['cid'];
+		echo "comment by user:".$row1['uname'];
 		echo "<br>";
 		echo $row1['cmt'];
 		?>

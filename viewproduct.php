@@ -14,6 +14,7 @@ include('header.php');
 
 	.img
 	{
+		
 		width:90%;
 		height:80%;
 		margin-left: 5%;

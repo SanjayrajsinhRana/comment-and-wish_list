@@ -35,20 +35,10 @@ foreach($_FILES["files"]["tmp_name"] as $key=>$tmp_name){
     else
     {
     	echo "failed to upload";
-    }
-    
+    }   
 }
-
 $filearray1=array_values($filearray);
     $pim=implode(",", $filearray1);
-
-
-
-
-
-
-
-
 	// $target = "picture/".basename($_FILES['image']['name']);
 	// $p_name = $_FILES['image']['name'];
 	// $move = move_uploaded_file($_FILES['image']['tmp_name'],$target);
@@ -62,12 +52,6 @@ $filearray1=array_values($filearray);
 	 		echo mysqli_error($con);
 	 }
 }
-
-
-
-
-
-
 else
 {
 	echo mysqli_error($con);
