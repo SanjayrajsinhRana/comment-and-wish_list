@@ -139,24 +139,26 @@ if(isset($_SESSION['u_id']))
 		
 <?php
 }
+			$price_query="SELECT SUM(price) FROM product WHERE pid IN(SELECT pid FROM cart WHERE cid='$cust_id')";
+			if ($result2=mysqli_query($con,$price_query)) 
+			{
+				while ($row=mysqli_fetch_assoc($result2))
+				{
+					$bill=$row['SUM(price)'];
 ?>
 </div>
 	<div class="button">
 		<a href="viewproduct.php"><button class="button_prod">continue shopping</button></a>
-		<button class="button_prod">Place Order</button>
+		<a href="shipping.php?bill=<?php echo $bill;?>"><button class="button_prod">Place Order</button></a>
 	</div>
 </div>
 </div>
 <div class="bill">
 	<div class="details">
 	<p class="price_details">PRICE DETAILS</p>	
-	Amount Payable:<?php
-			$price_query="SELECT SUM(price) FROM product WHERE pid IN(SELECT pid FROM cart WHERE cid='$cust_id')";
-			if ($result2=mysqli_query($con,$price_query)) 
-			{
-				while ($row=mysqli_fetch_assoc($result2))
-				{
-					echo $row['SUM(price)'];
+	Amount Payable:
+					<?php
+					echo $bill;
 				}
 			}
 			else
@@ -166,7 +168,6 @@ if(isset($_SESSION['u_id']))
 		}
 }
 else
-
 {
 	header("Location: ../form/login.php");
 }
